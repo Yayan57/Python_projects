@@ -29,26 +29,53 @@ def checkStock(url, model):
     Sizes = Sizes.split()
     Sizes.remove('Select')
     Sizes.remove('size')
-    for size in Sizes
+    for size in Sizes:
         print(str(model) +'size:' + str(size) + 'is available')
 
 def main(model, size):
     url = UrlGen(Model, size, Name)
     checkStock(url, model)
 
+
+class DoSomething:
+    #put code in the class to make the program work
+    pass
+
+
 def sneakerBot(mode, size=None):
     while True:
         try:
-            url = 'string'.format(model)
+            url = 'string'.format(Model)
             Sizes = checkStock(url)
             if size != None:
                 if str(size) in Sizes:
-                    Dosomething()
+                    DoSomething()
             else:
                 for a in Sizes:
                     DoSomething()
         except:
             pass
+
+
+class ThreadCount:
+    # put code in the class to make the program work
+    pass
+
+
+class SizeList:
+    # put code in the class to make the program work
+    pass
+
+
+class ModelNumber:
+    # put code in the class to make the program work
+    pass
+
+
+class SneakerBot:
+    # put code in the class to make the program work
+    pass
+
 
 threads = (threading.Thread(name='ThreadNumber{}'.format(n), target = SneakerBot, args=(ModelNumber, size,))for size in SizeList for n in range(ThreadCount))
 for t in threads: t.start()
