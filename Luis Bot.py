@@ -4,7 +4,7 @@ import random
 import webbrowser
 import threading
 import csv
-import RandomHeaders
+#import RandomHeaders
 
 
 def UrlGen(model, size, name):
