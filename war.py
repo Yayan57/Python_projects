@@ -7,10 +7,19 @@ class Game:
     def __init__(self):
         empty_hand = []
         global player_count
-        player_count = int(input("Are there 1 or 2 players?"))
+        while True:
+            try:
+                player_count = int(input("Are there 1 or 2 players?"))
+                if (player_count not in range(1,3)):
+                    raise CustomError
+                break
+            except ValueError:
+                print("Pick a number please.")
+            except CustomError:
+                print("Pick 1 or 2 please.")
         if player_count == 1:
             name1 = input("p1 name ")
-            name2 = "Bot"
+            name2 = "the Bot"
         else:
             name1 = input("p1 name ")
             name2 = input("p2 name ")
@@ -24,7 +33,7 @@ class Game:
         print(w)
 
     def draw(self, p1n, p1c, p2n, p2c):
-        d = "{} chose {}, {} chose {}"
+        d = "{} chose the {}, {} chose the {}"
         d = d.format(p1n,
                      p1c,
                      p2n,
@@ -59,7 +68,7 @@ class Game:
             p2h.append(self.deck.rm_card())
             p1n = self.p1.name
             p2n = self.p2.name
-            print("Player 1 hand:")
+            print(p1n, "'s hand:")
             self.hand(p1h)
             while True:
                 try:
@@ -78,7 +87,7 @@ class Game:
             if player_count == 1:
                 response2 = randint(1, 5)
             else:
-                print("Player 2 hand:")
+                print(p2n, "'s hand:")
                 self.hand(p2h)
                 while True:
                     try:
