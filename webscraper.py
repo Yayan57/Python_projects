@@ -11,12 +11,18 @@ class Scraper:
         xml = r.read()
         parser = "html.parser"
         sp = BeautifulSoup(xml, parser)
+        st = open("headlines.txt", "w")
         for item in sp.find_all("item"):
             title = item.find("title")
             if title is None:
                 continue
             else:
-                print("\n" + title.text)
+                st.write("\n" + title.text)
+        st.close()
 
 news = "https://news.google.com/news/rss/headlines"
+
 Scraper(news).scrape()
+
+
+
